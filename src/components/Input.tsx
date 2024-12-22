@@ -4,7 +4,7 @@ import { lbl } from "@/lib/labels";
 import { ValidationError } from "@/lib/ValidationError.type";
 import { Validator } from "@/lib/Validator.type";
 import { runValidators } from "@/lib/validators";
-import { FocusEvent, FormEvent, InputHTMLAttributes, useCallback, useEffect, useRef, useState } from "react";
+import { ChangeEvent, FocusEvent, InputHTMLAttributes, useCallback, useEffect, useRef, useState } from "react";
 
 export default function Input({ name, label, validators = [], ...inputProps }: { name: string, label: string, validators?: Validator[] } & InputHTMLAttributes<HTMLInputElement>) {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -12,7 +12,7 @@ export default function Input({ name, label, validators = [], ...inputProps }: {
   const [touched, setTouched] = useState(false)
   const [errors, setErrors] = useState<ValidationError[]>([])
   
-  function handleChange(event: FormEvent<HTMLInputElement>) {
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const value = event.currentTarget.value
     setValue(value)
     inputProps.onChange?.(event)
