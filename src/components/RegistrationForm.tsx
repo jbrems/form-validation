@@ -16,7 +16,7 @@ export default function RegistrationForm() {
   }
 
   return <Form validators={[passwordValidator]}>
-    <fieldset className="flex flex-col gap-4">
+    <fieldset className="flex flex-col">
       <Input label="Email address" name="email" type="email" validators={[required(), email()]} />
       <Input label="Password" name="password" type="password" validators={[required(), minLength(10)]} />
       <Input label="Confirm password" name="confirm-password" type="password" validators={[required()]} />

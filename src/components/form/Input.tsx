@@ -51,7 +51,8 @@ export default function Input({ name, label, validators = [], ...inputProps }: {
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      {touched && !!errors?.length && <p className="text-sm text-red-400 px-2 py-1">{lbl(`validation.error.${errors[0].toLocaleLowerCase()}`, { fieldName: label })}</p>}
-      {touched && !errors?.length && !!formErrors[name]?.length && <p className="text-sm text-red-400 px-2 py-1">{lbl(`validation.error.${formErrors[name][0].toLocaleLowerCase()}`, { fieldName: label })}</p>}
+      {touched && !!errors?.length && <p className="text-sm text-red-400 px-2 py-1">(!) {lbl(`validation.error.${errors[0].toLocaleLowerCase()}`, { fieldName: label })}</p>}
+      {touched && !errors?.length && !!formErrors[name]?.length && <p className="text-sm text-red-400 px-2 py-1">(!) {lbl(`validation.error.${formErrors[name][0].toLocaleLowerCase()}`, { fieldName: label })}</p>}
+      {(!touched || (!errors?.length && !formErrors[name?.length])) && <p className="text-sm py-1">&nbsp;</p>}
     </label>
 }
