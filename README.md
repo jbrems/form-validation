@@ -17,7 +17,5 @@ A quick proof of concept project to figure out what is needed to build your own 
 ## Requirements not implemented
 The following requirements were solved but removed or not implemented as they added more complexity than benefits to the code base which would needlessly make this POC harder to understand or explain:
 
-* Form level validation errors are removed when no longer applicable on every change of every form field
-  - Form level validation errors that are displayed for multiple form fields are only removed for the form field that solves the error
 * Validation rules can be customized
   - Validation error labels cannot be customized
